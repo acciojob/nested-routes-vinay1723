@@ -17,6 +17,9 @@ function Layout() {
       <nav>
         <ul>
           <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
             <Link to="women">Women</Link>
           </li>
           <li>
@@ -28,7 +31,6 @@ function Layout() {
         </ul>
       </nav>
       <hr />
-      {/* Renders nested route content */}
       <Outlet />
     </div>
   );
@@ -41,20 +43,20 @@ function Category({ items }) {
       <h2>Category Items</h2>
       <ul>
         {items.map((item) => (
-          <li key={item.id}>
-            <Link to={item.id.toString()}>{item.name}</Link>
+          <li key={item.name}>
+            <Link to={item.name}>{item.name}</Link>{" "}
+            {/* 👈 use name instead of id */}
           </li>
         ))}
       </ul>
-      <Outlet /> {/* Nested item details will render here */}
+      <Outlet />
     </div>
   );
 }
 
-// --- Item Detail Component ---
 function ItemDetail({ items }) {
-  const { itemId } = useParams();
-  const item = items.find((i) => i.id.toString() === itemId);
+  const { itemId } = useParams(); // now itemId = item.name
+  const item = items.find((i) => i.name === itemId);
   return (
     <div>
       <h3>Item Details</h3>
