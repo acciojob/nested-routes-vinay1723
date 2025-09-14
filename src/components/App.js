@@ -13,9 +13,7 @@ import {
 function Layout() {
   return (
     <main>
-      <div>
-        <h1>Shop Categories</h1>
-      </div>
+      <h1>Shop Categories</h1>
       <nav>
         <ul>
           <li>
@@ -90,6 +88,7 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route index element={<div>Index</div>} />
           {/* Women Category */}
           <Route path="women" element={<Category items={data.women} />}>
             <Route path=":itemId" element={<ItemDetail items={data.women} />} />
