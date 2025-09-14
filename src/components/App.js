@@ -12,8 +12,10 @@ import {
 // --- Layout Component with Navigation ---
 function Layout() {
   return (
-    <div>
-      <h1>Shop Categories</h1>
+    <main>
+      <div>
+        <h1>Shop Categories</h1>
+      </div>
       <nav>
         <ul>
           <li>
@@ -22,17 +24,11 @@ function Layout() {
           <li>
             <Link to="women">Women</Link>
           </li>
-          <li>
-            <Link to="men">Men</Link>
-          </li>
-          <li>
-            <Link to="kids">Kids</Link>
-          </li>
         </ul>
       </nav>
-      <hr />
+      {/* <hr /> */}
       <Outlet />
-    </div>
+    </main>
   );
 }
 
@@ -40,7 +36,7 @@ function Layout() {
 function Category({ items }) {
   return (
     <div>
-      <h2>Category Items</h2>
+      <p>Women Items:</p>
       <ul>
         {items.map((item) => (
           <li key={item.name}>
@@ -59,10 +55,9 @@ function ItemDetail({ items }) {
   const item = items.find((i) => i.name === itemId);
   return (
     <div>
-      <h3>Item Details</h3>
       {item ? (
         <p>
-          <strong>{item.name}</strong> — {item.description}
+          <strong>{item.name}</strong>
         </p>
       ) : (
         <p>Item not found.</p>
@@ -74,8 +69,10 @@ function ItemDetail({ items }) {
 // --- Data ---
 const data = {
   women: [
-    { id: 1, name: "Dress", description: "Beautiful red dress" },
-    { id: 2, name: "Handbag", description: "Leather handbag" },
+    { id: 1, name: "Grooming", description: "Beautiful red dress" },
+    { id: 2, name: "Shirt", description: "Leather handbag" },
+    { id: 2, name: "Trouser", description: "Leather handbag" },
+    { id: 2, name: "Jewellery", description: "Leather handbag" },
   ],
   men: [
     { id: 1, name: "Shirt", description: "Formal cotton shirt" },
